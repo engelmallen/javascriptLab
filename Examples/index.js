@@ -106,13 +106,18 @@ function adding(x, y) {
 }
 
 function naming(name) {
-	if(name == "Oggi") {
-		console.log(name)
-	} else if (name == "George") {
-		console.log(name)
-	} else {
-		console.log("have no idea what that " + name + " is")
-	}
+	if (name == "Oggi") 
+		{
+			console.log(name)
+		} 
+	else if (name == "George") 
+		{
+			console.log(name)
+		} 
+	else 
+		{
+			console.log("have no idea what that " + name + " is")
+		}
 }
 
 loops
