@@ -235,17 +235,26 @@ for
 
 var song = 
 [
-" bottles of beer on the wall ,", 
-" bottles of beer. ",
- " Take one down and pass it around, ", 
- " bottles of beer on the wall. "
+	" bottles of beer on the wall ,", 
+	" bottles of beer. ",
+ 	" Take one down and pass it around, ", 
+ 	" bottles of beer on the wall. ",
+ 	" bottle of beer on the wall ,",
+ 	" bottle of beer. ",
 ]
 
 
-for (var beers = 99; beers >= 0; beers--) 
+for (var beers = 99; beers >= 1; beers--) 
 {
-	alert(beers+song[0]+beers+song[1]);
-	alert(song[2]+ (beers-1)+song[3])
+	if (!beers < 2) 
+		{
+			console.log(beers+song[0]+beers+song[1]);
+			console.log(song[2]+ (beers-1)+song[3])}
+				else if (beers == 1) 
+					{
+						console.log(beers+song[4]+beers+song[5]);
+					}
+	
 }
 
 
