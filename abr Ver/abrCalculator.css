@@ -1,0 +1,110 @@
+{
+        display: block;
+        font-size: xx-large;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+
+      body {
+        background: #e8f8f5;
+      }
+
+      #outside {
+        background: #66ccff;
+        width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        box-shadow: 20 20 20;
+        border-radius: 0% 0% 5% 5%;
+      }
+
+      #scrDiv {
+        display: inline-block;
+        margin: 0 0 20px 0;
+      }
+
+      .numberScreen {
+        color: black;
+        background: white;
+        margin: 10px 0;
+        width: 98%;
+        height: 30px;
+        padding: 5px;
+        font-size: x-large;
+      }
+
+      #total {
+        color: black;
+        background: white;
+        text-align: right;
+        float: right;
+        width: 100%;
+        height: 35px;
+        font-size: x-large;
+      }
+
+      #nuPmPad {
+        /*background: #2874a6;*/
+        border-radius: 5%;
+        display: inline-block;
+        width: 100%;
+        box-shadow: 5px 5px 40px -8px grey inset;
+      }
+
+      .butKey {
+        width: 30%;
+        height: 120px;
+        color: white;
+        background: #006da3;
+        margin: 1.44%;
+        border-radius: 14%;
+        border: none;
+        font-size: xxx-large;
+        transition: 1s;
+        outline: none;
+      }
+
+      .butKey:hover {
+        color: #073649;
+        background: #bbecff;
+        border-radius: 100%;
+        transition: 1s;
+        outline: none;
+      }
+
+      .opKey {
+        height: 50px;
+        width: 50px;
+        color: #145a32;
+        background: #ebf5fb;
+        margin: 10px 10px 10px 0;
+        border-radius: 100%;
+        border: none;
+        font-size: medium;
+        outline: none;
+
+        /*  float: left;
+    margin: 10px;
+    height: 30px;
+     width: 30px; 
+    border-radius: 52%;
+    margin-left: 10px 10px 0 0;
+*/
+      }
+
+      .opKey:hover {
+        color: #145a32;
+        background: #5fa0ff;
+        border-radius: 20%;
+        transition: 0.5s;
+}
+        /*  float: left;
+    margin: 10px;
+    height: 30px;
+     width: 30px; 
+    border-radius: 52%;
+    margin-left: 10px 10px 0 0;
+*/

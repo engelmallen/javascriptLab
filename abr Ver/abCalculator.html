@@ -1,0 +1,390 @@
+<html>
+  <head>
+    <style>
+      h1 {
+        display: block;
+        font-size: xx-large;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+
+      body {
+        background: #e8f8f5;
+      }
+
+      #outside {
+        background: #66ccff;
+        width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        box-shadow: 20 20 20;
+        border-radius: 0% 0% 5% 5%;
+      }
+
+      #scrDiv {
+        display: inline-block;
+        margin: 0 0 20px 0;
+      }
+
+      .numberScreen {
+        color: black;
+        background: white;
+        margin: 10px 0;
+        width: 98%;
+        height: 30px;
+        padding: 5px;
+        font-size: x-large;
+      }
+
+      #total {
+        color: black;
+        background: white;
+        text-align: right;
+        float: right;
+        width: 100%;
+        height: 35px;
+        font-size: x-large;
+      }
+
+      #nuPmPad {
+        /*background: #2874a6;*/
+        border-radius: 5%;
+        display: inline-block;
+        width: 100%;
+        box-shadow: 5px 5px 40px -8px grey inset;
+      }
+
+      .butKey {
+        width: 30%;
+        height: 120px;
+        color: white;
+        background: #006da3;
+        margin: 1.44%;
+        border-radius: 14%;
+        border: none;
+        font-size: xxx-large;
+        transition: 1s;
+        outline: none;
+      }
+
+      .butKey:hover {
+        color: #073649;
+        background: #bbecff;
+        border-radius: 100%;
+        transition: 1s;
+        outline: none;
+      }
+
+      .opKey {
+        height: 50px;
+        width: 50px;
+        color: #145a32;
+        background: #ebf5fb;
+        margin: 10px 10px 10px 0;
+        border-radius: 100%;
+        border: none;
+        font-size: medium;
+        outline: none;
+
+        /*  float: left;
+    margin: 10px;
+    height: 30px;
+     width: 30px; 
+    border-radius: 52%;
+    margin-left: 10px 10px 0 0;
+*/
+      }
+
+      .opKey:hover {
+        color: #145a32;
+        background: #5fa0ff;
+        border-radius: 20%;
+        transition: 0.5s;
+
+        /*  float: left;
+    margin: 10px;
+    height: 30px;
+     width: 30px; 
+    border-radius: 52%;
+    margin-left: 10px 10px 0 0;
+*/
+      }
+    </style>
+  </head>
+  <body>
+    <!--Screens-->
+    <div id="outside">
+      <div id="scrDiv">
+        <h1 style="text-align: center">Calculator (Complete version)</h1>
+
+        <input
+          id="val1"
+          type="Number"
+          placeholder="Total"
+          class="numberScreen"
+          disabled
+        />
+
+        <input id="val2" type="text" class="numberScreen" disabled />
+
+        <input
+          id="total"
+          type="Number"
+          placeholder="Total"
+          class="numberScreen"
+        />
+
+        <!--Operators-->
+        <button class="opKey" value="+">+</button>
+
+        <button class="opKey" value="-">-</button>
+
+        <button class="opKey" value="*">x</button>
+
+        <button class="opKey" value="/">÷</button>
+
+        <button id="butTot">=</button>
+
+        <button id="butClr">CE</button>
+
+        <button id="butDel">C</button>
+      </div>
+
+      <!--Number Buttons-->
+
+      <div id="nuPmPad">
+        <button id="num1" class="butKey">1</button>
+        <button id="num2" class="butKey">2</button>
+        <button id="num3" class="butKey">3</button>
+        <button id="num4" class="butKey">4</button>
+        <button id="num5" class="butKey">5</button>
+        <button id="num6" class="butKey">6</button>
+        <button id="num7" class="butKey">7</button>
+        <button id="num8" class="butKey">8</button>
+        <button id="num9" class="butKey">9</button>
+        <button id="numDot" class="butKey">.</button>
+        <button id="num0" class="butKey">0</button>
+        <button id="substract" class="butKey">-</button>
+      </div>
+    </div>
+
+    <script>
+      var val1 = document.getElementById("val1");
+
+      var val2 = document.getElementById("val2");
+
+      var total = document.getElementById("total");
+
+      var butAdd = document.getElementById("butAdd");
+      var butSub = document.getElementById("butSub");
+      var butMul = document.getElementById("butMul");
+      var butDiv = document.getElementById("butDiv");
+      var butTot = document.getElementById("butTot");
+      var butClr = document.getElementById("butClr");
+      var butDel = document.getElementById("butDel");
+
+      var operator = null;
+      total.value = "0";
+      val1.value = 0;
+      val2.value = "";
+
+      // Operators
+
+      function totNum() {
+        var left = parseInt(total.value);
+        var right = parseInt(val1.value);
+
+        if (operator === "+") {
+          console.log("suma", val1.value, total.value, operator);
+          total.value = left + right;
+        } else if (operator === "-") {
+          console.log("resta", val1.value, total.value, operator);
+          total.value = right - left;
+        } else if (operator === "/") {
+          console.log("resta", total.value, operator);
+        }
+      }
+
+      butTot.addEventListener("click", totNum);
+
+      var ops = document.getElementsByClassName("opKey");
+      for (let index = 0; index < ops.length; index++) {
+        var element = ops[index];
+        element.addEventListener("click", function(e) {
+          operator = this.value;
+          if (parseInt(val1.value) !== 0 && parseInt(total.value) !== 0) {
+            totNum();
+          }
+          val1.value = parseInt(total.value);
+          total.value = 0;
+        });
+      }
+
+      //   butAdd.addEventListener("click", function plusNum() {
+      //     val1.value = parseInt(val1.value) + parseInt(total.value);
+      //     total.value = "0";
+      //   });
+
+      //   butSub.addEventListener("click", function subNum() {
+      //     console.log("subNum", val1.value, total.value, val2.value);
+      //     var left = parseInt(val1.value);
+      //     var right = parseInt(total.value);
+
+      //     val1.value = left - right;
+
+      //     total.value = "0";
+      //     console.log("subNum", val1.value, total.value, val2.value);
+
+      //     /*		if (val1<0)
+      // 			{
+      // 			val1.value = parseInt(val1.value) - parseInt(total.value);
+      // 			total.value = "0";
+      // 			}
+      // 		else
+      // 		{
+      // 			val1.value = parseInt(val1.value) + parseInt(total.value);
+      // 			total.value = "0";
+      // 		}
+
+      // */
+      //   });
+
+      butClr.addEventListener("click", function() {
+        val1.value = 0;
+        total.value = 0;
+      });
+
+      butDel.addEventListener("click", function() {
+        val1.value = 0;
+        total.value = 0;
+        val2.value = "";
+      });
+
+      // Numbers
+
+      num1.addEventListener("click", function() {
+        if (total.value == 0) {
+          total.value = "";
+          total.value += "1";
+          // val1.value += "1";
+        } else {
+          total.value += "1";
+        }
+      });
+
+      num2.addEventListener("click", function() {
+        if (total.value == 0) {
+          total.value = "";
+          total.value += "2";
+          // val1.value += "1";
+        } else {
+          total.value += "2";
+        }
+      });
+
+      num3.addEventListener("click", function() {
+        if (total.value == 0) {
+          total.value = "";
+          total.value += "3";
+          // val1.value += "1";
+        } else {
+          total.value += "3";
+        }
+      });
+
+      num4.addEventListener("click", function() {
+        if (total.value == 0) {
+          total.value = "";
+          total.value += "4";
+          // val1.value += "1";
+        } else {
+          total.value += "4";
+        }
+      });
+
+      num5.addEventListener("click", function() {
+        if (total.value == 0) {
+          total.value = "";
+          total.value += "5";
+          // val1.value += "1";
+        } else {
+          total.value += "5";
+        }
+      });
+
+      num6.addEventListener("click", function() {
+        if (total.value == 0) {
+          total.value = "";
+          total.value += "6";
+          // val1.value += "1";
+        } else {
+          total.value += "6";
+        }
+      });
+
+      num7.addEventListener("click", function() {
+        if (total.value == 0) {
+          total.value = "";
+          total.value += "7";
+          // val1.value += "1";
+        } else {
+          total.value += "7";
+        }
+      });
+
+      num8.addEventListener("click", function() {
+        if (total.value == 0) {
+          total.value = "";
+          total.value += "8";
+          // val1.value += "1";
+        } else {
+          total.value += "8";
+        }
+      });
+
+      num9.addEventListener("click", function() {
+        if (total.value == 0) {
+          total.value = "";
+          total.value += "9";
+          // val1.value += "1";
+        } else {
+          total.value += "9";
+        }
+      });
+
+      num0.addEventListener("click", function() {
+        if (total.value == 0) {
+          total.value = "";
+          total.value += "0";
+          // val1.value += "1";
+        } else {
+          total.value += "0";
+        }
+      });
+      numDot.addEventListener("click", function() {
+        if (total.value == 0) {
+          total.value = "";
+          total.value += ".";
+          // val1.value += "1";
+        } else {
+          total.value += ".";
+        }
+      });
+
+      /*num2.addEventListener("click", 	
+	function()
+		{
+			if (total.value == 0)
+			{
+				total.value = ""
+				total.value += "2"
+				// val1.value += "1";
+			} else {total.value += "2"}
+		}
+	)*/
+    </script>
+  </body>
+</html>
