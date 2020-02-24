@@ -12,6 +12,15 @@ var butTot = document.getElementById('butTot');
 var butClr = document.getElementById('butClr');
 var butDel = document.getElementById('butDel');
 
+var op1 = 0;
+var op2 = 0;
+var opChg = null;
+
+// function opChange()
+// // {
+// // 	if (opChg == false){opChg = true}
+// // 		else {opChg = false}
+// // }
 
 total.value = "0";
 val1.value = 0;
@@ -22,14 +31,39 @@ val2.value = "";
 butAdd.addEventListener("click",
 function plusNum()
 	{
+			op1 = parseInt(total.value);
+			total.value = 0;
+			opChg = "sum";
 
-		val1.value = parseInt(val1.value) + parseInt(total.value);
-		total.value = 0;
-		if (val2.value != "+" && val2.value != "-" && 
-		 	val2.value != "x" && val2.value != "÷")
-		 	{
-				val2.value += "+"; 
-			}
+			console.log(op1);
+			console.log(opChg);
+
+	}
+)
+
+butSub.addEventListener("click",
+function subNum()
+	{
+			op1 = parseInt(total.value);
+			total.value = 0;
+			opChg = "sub";
+
+			console.log(op1);
+			console.log(opChg);
+
+	}
+)
+
+butMul.addEventListener("click",
+function subNum()
+	{
+			op1 = parseInt(total.value);
+			total.value = 0;
+			opChg = "mul";
+
+			console.log(op1);
+			console.log(opChg);
+
 	}
 )
 
@@ -38,6 +72,8 @@ butClr.addEventListener("click",
 		{
 			val1.value = 0;
 			total.value = 0;
+			op1 = 0;
+			op2 = 0;
 
 		}
 )
@@ -48,6 +84,8 @@ butDel.addEventListener("click",
 			val1.value = 0;
 			total.value = 0;
 			val2.value = "";
+			op1 = 0;
+			op2 = 0;
 		}
 )
 
@@ -56,22 +94,43 @@ butDel.addEventListener("click",
 butTot.addEventListener("click",
 function totNum()
 	{
-		val1.value = parseInt(val1.value) + parseInt(total.value);
-		total.value = val1.value;
+		if (opChg == "sum") {
+		op2 = total.value	
+		total.value = "";
+		total.value = parseInt(op1)+ parseInt(op2);
+	}else if 
+		(opChg == "sub") {
+		op2 = parseInt(total.value*-1)	
+		total.value = "";
+		total.value = parseInt(op1)+ parseInt(op2);
+	}else if 
+		(opChg == "mul") {
+		op2 = parseInt(total.value)	
+		total.value = "";
+		total.value = parseInt(op1)* parseInt(op2);
+	}
+
+
 	}
 )
+
+
 
  					// Numbers
 
 num1.addEventListener("click", 	
 	function()
 		{
-			if (total.value == 0)
+		
+		if (total.value == 0)
 			{
-				total.value = ""
-				total.value += "1"
-				val2.value += "1";
+				total.value = "";
+				total.value += "1";
 			} else {total.value += "1"}
+		
+
+
+
 		}
 	)	
 
