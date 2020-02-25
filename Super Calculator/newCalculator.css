@@ -1,55 +1,74 @@
+*
+{
+    outline: none;
+}
+
+input
+{width: 0;
+height: 0;
+margin: 0;
+padding: 0;}
+
 h1
 {
-	display: block;
-    font-size: xx-large;
+    display: block;
+    font-size: x-large;
+    text-align: left;
+    font-style: italic;
+    margin-left: 2px;
     margin-block-start: 0;
     margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-bottom: 20px;
     font-weight: bold;
 }
 
 body
 {
-	background:  #e8f8f5 ;
+    background:  #e8f8f5 ;
 }
 
 #outside
 {
-	background:   #66ccff;
-	width: 600px;
-	margin: 0 auto;
-	padding: 20px;
-	box-shadow: 20 20 20;
-	border-radius: 0% 0% 5% 5%;
+    background:   #66ccff;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 20 20 20;
+    border-radius: 0% 0% 5% 5%;
 }
 
 #scrDiv
 {
-	display: inline-block;
-	margin: 0 0 20px 0;
+    display: inline-block;
+    margin: 0 0 20px 0;
 }
 
 .numberScreen
 {
     color: black;
     background: white;
-    margin: 10px 0;
+    text-align: right;
+    margin: 0 1px;
     width: 98%;
     height: 30px;
     padding: 5px; 
-    font-size: x-large;
+    font-size: medium;
+    border-style: none;
+}
+
+#val1
+{
+    font-style: italic;
 }
 
 #total
 {
-	color: black;
-    background: white;
-    text-align: right;
+    
     float: right;
-    width: 100%;
+    width: 98%;
     height: 35px;
     font-size: x-large;
+
 }
 
 #nuPmPad
@@ -63,39 +82,39 @@ body
 
 .butKey
 {
-	width: 30%;
-	height: 120px;
+    width: 30%;
+    height: 120px;
     color: white;
     background: #006da3;
-	margin: 1.44%;
-	border-radius: 14%;
-	border: none;
-	font-size: xxx-large;
-	transition: 1s;
-	outline:none;
+    margin: 1.44%;
+    border-radius: 14%;
+    border: none;
+    font-size: xxx-large;
+    transition: 1s;
+    outline:none;
 }
 
 .butKey:hover
 {
     color: #073649;
     background: #bbecff;
-	border-radius: 100%;
-	transition: 1s;
-	outline:none;
+    border-radius: 100%;
+    transition: 1s;
+    outline:none;
 }
 
 
 .opKey
 {
-	height: 50px;
-	width: 50px;
-	color: #145a32;
-	background: #ebf5fb;
-	margin: 10px 10px 10px 0;
-	border-radius: 100%;
-	border: none;
-	font-size: medium;
-	outline:none;
+    height: 50px;
+    width: 50px;
+    color: #145a32;
+    background: #ebf5fb;
+    margin: 10px 10px 10px 0;
+    border-radius: 100%;
+    border: none;
+    font-size: medium;
+    outline:none;
 
 /*  float: left;
     margin: 10px;
@@ -108,10 +127,10 @@ body
 
 .opKey:hover
 {
-	color: #145a32;
-	background: #5fa0ff;
-	border-radius: 20%;
-	transition: 0.5s
+    color: #145a32;
+    background: #5fa0ff;
+    border-radius: 20%;
+    transition: 0.5s
 
 
 /*  float: left;
